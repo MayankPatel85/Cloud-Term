@@ -18,7 +18,7 @@ struct TabbarView: View {
         ZStack {
             TabView {
                 NavigationView {
-                    HomeView(selectedSneakerViewModel: selectedSneakerViewModel, namespace: namespace, sneakers: sneakers)
+                    HomeView(selectedSneakerViewModel: selectedSneakerViewModel, namespace: namespace)
                         .environmentObject(sneakerViewModel)
                 }
                 .tabItem {
@@ -52,13 +52,6 @@ struct TabbarView: View {
                     .zIndex(2)
                     .environmentObject(sneakerViewModel)
             }
-        }
-        .onAppear {
-//            Auth.auth().addStateDidChangeListener { (auth, user) in
-//                if user == nil {
-//                    authViewModel.showAuthScreen.toggle()
-//                }
-//            }
         }
         .fullScreenCover(isPresented: $authViewModel.showAuthScreen) {
             AuthenticationView()

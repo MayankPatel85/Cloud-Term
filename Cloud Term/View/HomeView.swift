@@ -11,7 +11,6 @@ struct HomeView: View {
     @ObservedObject var selectedSneakerViewModel: SelectedSneakerViewModel
     @EnvironmentObject var sneakerViewModel: SneakerViewModel
     var namespace: Namespace.ID
-    var sneakers: [Sneaker]
     
     var body: some View {
         ScrollView {
@@ -54,7 +53,7 @@ struct Home_Previews: PreviewProvider {
     @Namespace static var namespace
 
     static var previews: some View {
-        HomeView(selectedSneakerViewModel: SelectedSneakerViewModel(), namespace: self.namespace, sneakers: sneakers)
+        HomeView(selectedSneakerViewModel: SelectedSneakerViewModel(), namespace: self.namespace)
             .environmentObject(sneakerViewModel)
     }
 }

@@ -13,24 +13,6 @@ struct SneakerCard: View {
     
     var body: some View {
         LazyVStack(alignment: .center, spacing: 0) {
-            //                            Image(sneaker.images[0])
-            //                                .resizable()
-            //                                .aspectRatio(contentMode: .fit)
-            //                                .matchedGeometryEffect(id: sneaker.id + "Image", in: namespace)
-            //                                .background(Color("BGColor").matchedGeometryEffect(id: sneaker.id + "IamgeBackground", in: namespace))
-//            AsyncImage(url: URL(string: sneaker.images[0])) { image in
-//                image
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .matchedGeometryEffect(id: sneaker.id + "Image", in: namespace, isSource: true)
-//                    .background(
-//                        Color("BGColor")
-//                            .matchedGeometryEffect(id: sneaker.id + "IamgeBackground", in: namespace, isSource: true)
-//                    )
-//            } placeholder: {
-//                ProgressView()
-//                    .progressViewStyle(.circular)
-//            }
             CacheAsyncImage(url: URL(string: sneaker.images[0])!) { phase in
                 if let image = phase.image {
                     image
@@ -43,7 +25,6 @@ struct SneakerCard: View {
                         )
                 }
             }
-            
             
             VStack(alignment: .leading, spacing: 2) {
                 Text("\(sneaker.releaseDate) 07 AM")
