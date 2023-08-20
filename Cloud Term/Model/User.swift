@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Identifiable {
-    let id: String
+struct User {
+    let uid: String
     let email: String
 }

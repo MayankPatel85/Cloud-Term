@@ -7,14 +7,23 @@
 
 import Foundation
 
-class NetworkManager {
+protocol NetworkManagerImpl {
+    func getData(url: String, session: URLSession) async throws -> Data
+    func postData<T: Encodable>(url: String, data: T, session: URLSession) async throws -> Data
+}
+
+class NetworkManager: NetworkManagerImpl {
     
-    public static func getData(url: String) async throws -> Data {
+    static let shared = NetworkManager()
+    
+    private init() { }
+    
+    func getData(url: String, session: URLSession) async throws -> Data {
         guard let url = URL(string: url) else {
             throw NMError.invalidUrl
         }
         
-        let (data, response) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await session.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw NMError.invalidResponse
@@ -23,7 +32,7 @@ class NetworkManager {
         return data
     }
     
-    public static func postData<T: Encodable>(url: String, data: T) async throws -> Data {
+    func postData<T: Encodable>(url: String, data: T, session: URLSession) async throws -> Data {
         guard let url = URL(string: url) else {
             throw NMError.invalidUrl
         }
@@ -38,7 +47,7 @@ class NetworkManager {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = dataToJson
         
-        let (data, response) = try await URLSession.shared.upload(for: request, from: dataToJson)
+        let (data, response) = try await session.upload(for: request, from: dataToJson)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw NMError.invalidResponse

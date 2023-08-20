@@ -8,12 +8,19 @@
 import Foundation
 import FirebaseAuth
 
+protocol AuthImpl {
+    var currentUser: User? { get }
+}
+
+
 class AuthViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     @Published var alertTitle: String = ""
     @Published var showAuthScreen: Bool = false
+    
+    private var networkManager: NetworkManagerImpl = NetworkManager.shared
     
     init() {
         Auth.auth().addStateDidChangeListener { _, user in
@@ -61,7 +68,7 @@ class AuthViewModel: ObservableObject {
             self.isLoading = true
         }
         do {
-            let response = try await NetworkManager.postData(url: "\(Constants.apiUrl)/subscribeForEmail", data: SubscribeEmail(email: email))
+            let response = try await networkManager.postData(url: "\(Constants.apiUrl)/subscribeForEmail", data: SubscribeEmail(email: email), session: .shared)
             await MainActor.run {
                 self.isLoading = false
                 print(response)

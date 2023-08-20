@@ -70,7 +70,7 @@ struct ResultsView: View {
             }
             .onAppear {
                 Task {
-                    await sneakerViewModel.getResults()
+                    try await sneakerViewModel.getResults()
                 }
             }
             .overlay {

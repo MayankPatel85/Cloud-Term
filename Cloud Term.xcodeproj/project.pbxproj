@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A818148B2A8EAD2400F9416E /* MockUrlSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818148A2A8EAD2400F9416E /* MockUrlSessionProtocol.swift */; };
+		A818148E2A8EAF9F00F9416E /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A818148D2A8EAF9F00F9416E /* NetworkManagerTests.swift */; };
 		A82FBD212A753E5A0060D8FA /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FBD202A753E5A0060D8FA /* Entry.swift */; };
 		A82FBD232A7543C40060D8FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82FBD222A7543C30060D8FA /* Constants.swift */; };
+		A83B30242A8F9D11004E603F /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B30232A8F9D11004E603F /* MockNetworkManager.swift */; };
+		A83B30272A8FA6A3004E603F /* SneakerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83B30262A8FA6A3004E603F /* SneakerViewModelTests.swift */; };
 		A84495BF2A64C4D600105B15 /* SizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84495BE2A64C4D600105B15 /* SizeView.swift */; };
 		A84E89302A769CDD00949E97 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84E892F2A769CDD00949E97 /* Result.swift */; };
+		A84FF5302A8E9F5B004360D6 /* ApiEndpointsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84FF52F2A8E9F5B004360D6 /* ApiEndpointsTests.swift */; };
+		A84FF5332A8EA445004360D6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A84FF5322A8EA445004360D6 /* FirebaseAuth */; };
 		A858FFFC2A7597D00068DA95 /* SubscribeEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A858FFFB2A7597D00068DA95 /* SubscribeEmail.swift */; };
 		A87E7DD12A63640E00816F50 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E7DD02A63640E00816F50 /* AuthenticationView.swift */; };
 		A87E7DD52A6370A500816F50 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E7DD42A6370A500816F50 /* AuthViewModel.swift */; };
+		A88455592A9031CE000C983E /* MockFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88455582A9031CE000C983E /* MockFirebaseAuth.swift */; };
 		A88628E22A8283960094D1CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88628E12A8283960094D1CA /* User.swift */; };
 		A895EC4A2A6570BA0092F82C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A895EC492A6570BA0092F82C /* NetworkManager.swift */; };
 		A89A70E02A5F46B100D640F9 /* Cloud_TermApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A70DF2A5F46B100D640F9 /* Cloud_TermApp.swift */; };
@@ -35,17 +42,35 @@
 		A8F26EA12A818E6900C08E9F /* DrawButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F26EA02A818E6900C08E9F /* DrawButton.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A84FF5292A8E9E96004360D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A89A70D42A5F46B100D640F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A89A70DB2A5F46B100D640F9;
+			remoteInfo = "Cloud Term";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		A81814872A8EAD0200F9416E /* Cloud Term.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloud Term.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A81814882A8EAD0200F9416E /* Cloud TermTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Cloud TermTests.xctest"; path = "/Users/mayank/Desktop/p1/Cloud Term/build/Debug-iphoneos/Cloud TermTests.xctest"; sourceTree = "<absolute>"; };
+		A818148A2A8EAD2400F9416E /* MockUrlSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlSessionProtocol.swift; sourceTree = "<group>"; };
+		A818148D2A8EAF9F00F9416E /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		A82FBD202A753E5A0060D8FA /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		A82FBD222A7543C30060D8FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A83B30232A8F9D11004E603F /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		A83B30262A8FA6A3004E603F /* SneakerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerViewModelTests.swift; sourceTree = "<group>"; };
 		A84495BE2A64C4D600105B15 /* SizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeView.swift; sourceTree = "<group>"; };
 		A84E892F2A769CDD00949E97 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		A84FF52F2A8E9F5B004360D6 /* ApiEndpointsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpointsTests.swift; sourceTree = "<group>"; };
 		A858FFFB2A7597D00068DA95 /* SubscribeEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeEmail.swift; sourceTree = "<group>"; };
 		A87E7DD02A63640E00816F50 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		A87E7DD42A6370A500816F50 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A88455572A902E12000C983E /* Cloud TermTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Cloud TermTests.xctestplan"; sourceTree = "<group>"; };
+		A88455582A9031CE000C983E /* MockFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuth.swift; sourceTree = "<group>"; };
 		A88628E12A8283960094D1CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A895EC492A6570BA0092F82C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		A89A70DC2A5F46B100D640F9 /* Cloud Term.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloud Term.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A89A70DF2A5F46B100D640F9 /* Cloud_TermApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud_TermApp.swift; sourceTree = "<group>"; };
 		A89A70E12A5F46B100D640F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A89A70E32A5F46B200D640F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +90,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A84FF5222A8E9E95004360D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A84FF5332A8EA445004360D6 /* FirebaseAuth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A89A70D92A5F46B100D640F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +109,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A81814892A8EAD1200F9416E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A818148A2A8EAD2400F9416E /* MockUrlSessionProtocol.swift */,
+				A83B30232A8F9D11004E603F /* MockNetworkManager.swift */,
+				A88455582A9031CE000C983E /* MockFirebaseAuth.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A818148C2A8EAF7C00F9416E /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				A818148D2A8EAF9F00F9416E /* NetworkManagerTests.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		A83B30252A8FA68E004E603F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A83B30262A8FA6A3004E603F /* SneakerViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A84FF5262A8E9E96004360D6 /* Cloud TermTests */ = {
+			isa = PBXGroup;
+			children = (
+				A83B30252A8FA68E004E603F /* ViewModel */,
+				A818148C2A8EAF7C00F9416E /* NetworkManager */,
+				A81814892A8EAD1200F9416E /* Mocks */,
+				A84FF52E2A8E9F18004360D6 /* ApiEndpoints */,
+			);
+			path = "Cloud TermTests";
+			sourceTree = "<group>";
+		};
+		A84FF52E2A8E9F18004360D6 /* ApiEndpoints */ = {
+			isa = PBXGroup;
+			children = (
+				A84FF52F2A8E9F5B004360D6 /* ApiEndpointsTests.swift */,
+			);
+			path = ApiEndpoints;
+			sourceTree = "<group>";
+		};
 		A895EC482A6570AC0092F82C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,17 +167,11 @@
 		A89A70D32A5F46B100D640F9 = {
 			isa = PBXGroup;
 			children = (
+				A88455572A902E12000C983E /* Cloud TermTests.xctestplan */,
 				A89A70DE2A5F46B100D640F9 /* Cloud Term */,
-				A89A70DD2A5F46B100D640F9 /* Products */,
+				A84FF5262A8E9E96004360D6 /* Cloud TermTests */,
+				A81814872A8EAD0200F9416E /* Cloud Term.app */,
 			);
-			sourceTree = "<group>";
-		};
-		A89A70DD2A5F46B100D640F9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A89A70DC2A5F46B100D640F9 /* Cloud Term.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		A89A70DE2A5F46B100D640F9 /* Cloud Term */ = {
@@ -167,6 +239,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A84FF5242A8E9E95004360D6 /* Cloud TermTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A84FF52D2A8E9E96004360D6 /* Build configuration list for PBXNativeTarget "Cloud TermTests" */;
+			buildPhases = (
+				A84FF5212A8E9E95004360D6 /* Sources */,
+				A84FF5222A8E9E95004360D6 /* Frameworks */,
+				A84FF5232A8E9E95004360D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A84FF52A2A8E9E96004360D6 /* PBXTargetDependency */,
+			);
+			name = "Cloud TermTests";
+			packageProductDependencies = (
+				A84FF5322A8EA445004360D6 /* FirebaseAuth */,
+			);
+			productName = "Cloud TermTests";
+			productReference = A81814882A8EAD0200F9416E /* Cloud TermTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A89A70DB2A5F46B100D640F9 /* Cloud Term */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A89A70EA2A5F46B200D640F9 /* Build configuration list for PBXNativeTarget "Cloud Term" */;
@@ -184,7 +277,7 @@
 				A8C150F12A6373E70048EC04 /* FirebaseAuth */,
 			);
 			productName = "Cloud Term";
-			productReference = A89A70DC2A5F46B100D640F9 /* Cloud Term.app */;
+			productReference = A81814872A8EAD0200F9416E /* Cloud Term.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -197,6 +290,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					A84FF5242A8E9E95004360D6 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = A89A70DB2A5F46B100D640F9;
+					};
 					A89A70DB2A5F46B100D640F9 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -214,16 +311,24 @@
 			packageReferences = (
 				A8C150F02A6373E70048EC04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
-			productRefGroup = A89A70DD2A5F46B100D640F9 /* Products */;
+			productRefGroup = A89A70D32A5F46B100D640F9;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				A89A70DB2A5F46B100D640F9 /* Cloud Term */,
+				A84FF5242A8E9E95004360D6 /* Cloud TermTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A84FF5232A8E9E95004360D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A89A70DA2A5F46B100D640F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,6 +342,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A84FF5212A8E9E95004360D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A818148E2A8EAF9F00F9416E /* NetworkManagerTests.swift in Sources */,
+				A84FF5302A8E9F5B004360D6 /* ApiEndpointsTests.swift in Sources */,
+				A88455592A9031CE000C983E /* MockFirebaseAuth.swift in Sources */,
+				A818148B2A8EAD2400F9416E /* MockUrlSessionProtocol.swift in Sources */,
+				A83B30272A8FA6A3004E603F /* SneakerViewModelTests.swift in Sources */,
+				A83B30242A8F9D11004E603F /* MockNetworkManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A89A70D82A5F46B100D640F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,7 +386,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A84FF52A2A8E9E96004360D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A89A70DB2A5F46B100D640F9 /* Cloud Term */;
+			targetProxy = A84FF5292A8E9E96004360D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A84FF52B2A8E9E96004360D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4PA264X8Y8;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayank.Cloud-TermTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cloud Term.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cloud Term";
+			};
+			name = Debug;
+		};
+		A84FF52C2A8E9E96004360D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4PA264X8Y8;
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayank.Cloud-TermTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cloud Term.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cloud Term";
+			};
+			name = Release;
+		};
 		A89A70E82A5F46B200D640F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -442,6 +606,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A84FF52D2A8E9E96004360D6 /* Build configuration list for PBXNativeTarget "Cloud TermTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A84FF52B2A8E9E96004360D6 /* Debug */,
+				A84FF52C2A8E9E96004360D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A89A70D72A5F46B100D640F9 /* Build configuration list for PBXProject "Cloud Term" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -474,6 +647,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A84FF5322A8EA445004360D6 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A8C150F02A6373E70048EC04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		A8C150F12A6373E70048EC04 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A8C150F02A6373E70048EC04 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

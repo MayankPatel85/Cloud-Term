@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Sneaker: Decodable, Identifiable, Hashable {
+struct Sneaker: Codable, Identifiable, Hashable {
     let id: String
     let name: String
     let description: String

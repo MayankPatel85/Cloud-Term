@@ -83,7 +83,7 @@ struct DetailView: View {
                 Button {
                     Task {
                         if let size = userSize, size != "" {
-                            await sneakerViewModel.postEntry(sneaker: selectedSneakerViewModel.selectedSneaker, size: size)
+                            try await sneakerViewModel.postEntry(sneaker: selectedSneakerViewModel.selectedSneaker, size: size)
                             joined.toggle()
                         } else {
                             showAlert.toggle()

@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "19F3EAB0-D7F1-4A4F-AD10-A0DB168060DC",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Cloud Term.xcodeproj",
+          "identifier" : "A89A70DB2A5F46B100D640F9",
+          "name" : "Cloud Term"
+        }
+      ]
+    },
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Cloud Term.xcodeproj",
+        "identifier" : "A84FF5242A8E9E95004360D6",
+        "name" : "Cloud TermTests"
+      }
+    }
+  ],
+  "version" : 1
+}
