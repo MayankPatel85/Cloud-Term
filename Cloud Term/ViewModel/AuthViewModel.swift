@@ -9,9 +9,13 @@ import Foundation
 import FirebaseAuth
 
 protocol AuthImpl {
-    var currentUser: User? { get }
+//    var currentUser: User? { get }
+    func createUser(withEmail email: String, password: String, completion: ((AuthDataResult?, Error?) -> Void)?)
+    func signIn(withEmail email: String, password: String, completion: ((AuthDataResult?, Error?) -> Void)?)
+    func signOut() throws
 }
 
+extension Auth: AuthImpl { }
 
 class AuthViewModel: ObservableObject {
     @Published var isLoading: Bool = false
@@ -20,9 +24,12 @@ class AuthViewModel: ObservableObject {
     @Published var alertTitle: String = ""
     @Published var showAuthScreen: Bool = false
     
-    private var networkManager: NetworkManagerImpl = NetworkManager.shared
+    private var networkManager: NetworkManagerImpl
+    private var auth: AuthImpl
     
-    init() {
+    init(auth: AuthImpl = Auth.auth(), networkManager: NetworkManagerImpl = NetworkManager.shared) {
+        self.auth = auth
+        self.networkManager = networkManager
         Auth.auth().addStateDidChangeListener { _, user in
             if user == nil {
                 self.showAuthScreen = true
@@ -34,7 +41,7 @@ class AuthViewModel: ObservableObject {
     
     func register(email: String, password: String) {
         self.isLoading = true
-        Auth.auth().createUser(withEmail: email, password: password) { [self] (result, error) in
+        auth.createUser(withEmail: email, password: password) { [self] (result, error) in
             if error != nil {
                 alertTitle = "Something Went Wrong!"
                 alertMessage = error!.localizedDescription
@@ -52,7 +59,7 @@ class AuthViewModel: ObservableObject {
     
     func signIn(email: String, password: String) {
         isLoading = true
-        Auth.auth().signIn(withEmail: email, password: password) { [self] (result, error) in
+        auth.signIn(withEmail: email, password: password) { [self] (result, error) in
             if error != nil {
                 alertTitle = "Something Went Wrong!"
                 alertMessage = error!.localizedDescription
@@ -68,10 +75,9 @@ class AuthViewModel: ObservableObject {
             self.isLoading = true
         }
         do {
-            let response = try await networkManager.postData(url: "\(Constants.apiUrl)/subscribeForEmail", data: SubscribeEmail(email: email), session: .shared)
+            let _ = try await networkManager.postData(url: "\(Constants.apiUrl)/subscribeForEmail", data: SubscribeEmail(email: email), session: .shared)
             await MainActor.run {
                 self.isLoading = false
-                print(response)
             }
         } catch {
             print("Error submitting entry \(error)")
@@ -88,7 +94,7 @@ class AuthViewModel: ObservableObject {
     
     func logout() {
         do {
-            try Auth.auth().signOut()
+            try auth.signOut()
         } catch {
             print("Error in logout \(error)")
         }

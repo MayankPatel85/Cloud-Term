@@ -21,7 +21,6 @@
 		A87E7DD12A63640E00816F50 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E7DD02A63640E00816F50 /* AuthenticationView.swift */; };
 		A87E7DD52A6370A500816F50 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87E7DD42A6370A500816F50 /* AuthViewModel.swift */; };
 		A88455592A9031CE000C983E /* MockFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88455582A9031CE000C983E /* MockFirebaseAuth.swift */; };
-		A88628E22A8283960094D1CA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88628E12A8283960094D1CA /* User.swift */; };
 		A895EC4A2A6570BA0092F82C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A895EC492A6570BA0092F82C /* NetworkManager.swift */; };
 		A89A70E02A5F46B100D640F9 /* Cloud_TermApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A70DF2A5F46B100D640F9 /* Cloud_TermApp.swift */; };
 		A89A70E22A5F46B100D640F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89A70E12A5F46B100D640F9 /* ContentView.swift */; };
@@ -39,6 +38,7 @@
 		A8B33ABE2A60796500D194EC /* SelectedSneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B33ABD2A60796500D194EC /* SelectedSneakerViewModel.swift */; };
 		A8C150EF2A6373950048EC04 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8C150EE2A6373950048EC04 /* GoogleService-Info.plist */; };
 		A8C150F22A6373E70048EC04 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A8C150F12A6373E70048EC04 /* FirebaseAuth */; };
+		A8C89FDB2A9417CB00E38804 /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C89FDA2A9417CB00E38804 /* AuthViewModelTests.swift */; };
 		A8F26EA12A818E6900C08E9F /* DrawButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F26EA02A818E6900C08E9F /* DrawButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		A81814872A8EAD0200F9416E /* Cloud Term.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cloud Term.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A81814882A8EAD0200F9416E /* Cloud TermTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Cloud TermTests.xctest"; path = "/Users/mayank/Desktop/p1/Cloud Term/build/Debug-iphoneos/Cloud TermTests.xctest"; sourceTree = "<absolute>"; };
 		A818148A2A8EAD2400F9416E /* MockUrlSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUrlSessionProtocol.swift; sourceTree = "<group>"; };
 		A818148D2A8EAF9F00F9416E /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		A82FBD202A753E5A0060D8FA /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -69,7 +68,6 @@
 		A87E7DD42A6370A500816F50 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A88455572A902E12000C983E /* Cloud TermTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Cloud TermTests.xctestplan"; sourceTree = "<group>"; };
 		A88455582A9031CE000C983E /* MockFirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFirebaseAuth.swift; sourceTree = "<group>"; };
-		A88628E12A8283960094D1CA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A895EC492A6570BA0092F82C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A89A70DF2A5F46B100D640F9 /* Cloud_TermApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud_TermApp.swift; sourceTree = "<group>"; };
 		A89A70E12A5F46B100D640F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		A8B33ABB2A60716300D194EC /* TabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarView.swift; sourceTree = "<group>"; };
 		A8B33ABD2A60796500D194EC /* SelectedSneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedSneakerViewModel.swift; sourceTree = "<group>"; };
 		A8C150EE2A6373950048EC04 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8C89FD92A94135700E38804 /* Cloud TermTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cloud TermTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8C89FDA2A9417CB00E38804 /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
 		A8F26EA02A818E6900C08E9F /* DrawButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				A83B30262A8FA6A3004E603F /* SneakerViewModelTests.swift */,
+				A8C89FDA2A9417CB00E38804 /* AuthViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,6 +172,7 @@
 				A89A70DE2A5F46B100D640F9 /* Cloud Term */,
 				A84FF5262A8E9E96004360D6 /* Cloud TermTests */,
 				A81814872A8EAD0200F9416E /* Cloud Term.app */,
+				A8C89FD92A94135700E38804 /* Cloud TermTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,7 +207,6 @@
 				A82FBD202A753E5A0060D8FA /* Entry.swift */,
 				A858FFFB2A7597D00068DA95 /* SubscribeEmail.swift */,
 				A84E892F2A769CDD00949E97 /* Result.swift */,
-				A88628E12A8283960094D1CA /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,7 +258,7 @@
 				A84FF5322A8EA445004360D6 /* FirebaseAuth */,
 			);
 			productName = "Cloud TermTests";
-			productReference = A81814882A8EAD0200F9416E /* Cloud TermTests.xctest */;
+			productReference = A8C89FD92A94135700E38804 /* Cloud TermTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		A89A70DB2A5F46B100D640F9 /* Cloud Term */ = {
@@ -347,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A818148E2A8EAF9F00F9416E /* NetworkManagerTests.swift in Sources */,
+				A8C89FDB2A9417CB00E38804 /* AuthViewModelTests.swift in Sources */,
 				A84FF5302A8E9F5B004360D6 /* ApiEndpointsTests.swift in Sources */,
 				A88455592A9031CE000C983E /* MockFirebaseAuth.swift in Sources */,
 				A818148B2A8EAD2400F9416E /* MockUrlSessionProtocol.swift in Sources */,
@@ -369,7 +371,6 @@
 				A8B33ABC2A60716300D194EC /* TabbarView.swift in Sources */,
 				A82FBD232A7543C40060D8FA /* Constants.swift in Sources */,
 				A89CD79C2A815C4B00A0812D /* CacheAsyncImage.swift in Sources */,
-				A88628E22A8283960094D1CA /* User.swift in Sources */,
 				A89A70F22A5F471900D640F9 /* HomeView.swift in Sources */,
 				A89CD79E2A816A7600A0812D /* SneakerCard.swift in Sources */,
 				A89A70F62A5F5B7500D640F9 /* DetailView.swift in Sources */,
