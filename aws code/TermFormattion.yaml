@@ -1,0 +1,410 @@
+Resources:
+  SneakersTermTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      TableName: "SneakersTerm"
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  EntriesTermTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      TableName: "EntriesTerm"
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  ResultTermTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      TableName: "ResultTerm"
+      AttributeDefinitions:
+        - AttributeName: "userId"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "userId"
+          KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  StockTermTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      TableName: "StockTerm"
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+  GetResults:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "getResultsTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "getResultsTerm.zip"
+
+  StoreEntriesResult:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "storeEntriesResultTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "storeEntriesResultTerm.zip"
+
+  PickWinners:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "pickWinnersTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "pickWinnersTerm.zip"
+
+  SubmitEntry:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "submitEntryTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "submitEntryTerm.zip"
+
+  InsertData:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "insertDataTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "insertDataTerm.zip"
+    DependsOn:
+    - "SneakersTermTable"
+    - "StockTermTable"
+
+  ResultSNSTopic:
+    Type: "AWS::SNS::Topic"
+    Properties:
+      TopicName: "ResultTerm"
+      FifoTopic: "false"
+
+  SubscribeEmail:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "subscribeEmailTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "subscribeEmailTerm.zip"
+      Environment:
+        Variables:
+          TOPIC_ARN: !Ref ResultSNSTopic
+    DependsOn:
+    - "ResultSNSTopic"
+
+  SendResultEmail:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "sendResultEmailTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "sendResultEmailTerm.zip"
+      Environment:
+        Variables:
+          TOPIC_ARN: !Ref ResultSNSTopic
+    DependsOn:
+    - "ResultSNSTopic"
+
+  GetSneakers:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      FunctionName: "getSneakersTerm"
+      Runtime: "nodejs18.x"
+      Handler: "index.handler"
+      Role: "iamrole"
+      Code:
+        S3Bucket: "term-project-5409"
+        S3Key: "getSneakersTerm.zip"
+
+  SneakersApi:
+    Type: "AWS::ApiGatewayV2::Api"
+    Properties:
+      Name: "term-assignment"
+      ProtocolType: "HTTP"
+
+  GetResultsLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      FunctionName: !Ref "GetResults"
+      Action: "lambda:InvokeFunction"
+      Principal: "apigateway.amazonaws.com"
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${SneakersApi}/*/*"
+
+  GetSneakersLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      FunctionName: !Ref "GetSneakers"
+      Action: "lambda:InvokeFunction"
+      Principal: "apigateway.amazonaws.com"
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${SneakersApi}/*/*"
+
+  SubmitEntryLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      FunctionName: !Ref "SubmitEntry"
+      Action: "lambda:InvokeFunction"
+      Principal: "apigateway.amazonaws.com"
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${SneakersApi}/*/*"
+
+  SubscribeEmailLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      FunctionName: !Ref "SubscribeEmail"
+      Action: "lambda:InvokeFunction"
+      Principal: "apigateway.amazonaws.com"
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${SneakersApi}/*/*"
+
+  InsertDataLambdaPermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      FunctionName: !Ref "InsertData"
+      Action: "lambda:InvokeFunction"
+      Principal: "apigateway.amazonaws.com"
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${SneakersApi}/*/*"
+
+  GetResultsIntegration:
+    Type: "AWS::ApiGatewayV2::Integration"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      IntegrationType: "AWS_PROXY"
+      PayloadFormatVersion: "2.0"
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetResults.Arn}/invocations"
+
+  GetSneakersIntegration:
+    Type: "AWS::ApiGatewayV2::Integration"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      IntegrationType: "AWS_PROXY"
+      PayloadFormatVersion: "2.0"
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetSneakers.Arn}/invocations"
+
+  SubmitEntryIntegration:
+    Type: "AWS::ApiGatewayV2::Integration"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      IntegrationType: "AWS_PROXY"
+      PayloadFormatVersion: "2.0"
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${SubmitEntry.Arn}/invocations"
+
+  InsertDataIntegration:
+    Type: "AWS::ApiGatewayV2::Integration"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      IntegrationType: "AWS_PROXY"
+      PayloadFormatVersion: "2.0"
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${InsertData.Arn}/invocations"
+
+  SubscribeEmailIntegration:
+    Type: "AWS::ApiGatewayV2::Integration"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      IntegrationType: "AWS_PROXY"
+      PayloadFormatVersion: "2.0"
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${SubscribeEmail.Arn}/invocations"
+
+  GetResultsRoute:
+    Type: "AWS::ApiGatewayV2::Route"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      RouteKey: "GET /getResult/{userId}"
+      Target: !Sub "integrations/${GetResultsIntegration}"
+
+  GetSneakersRoute:
+    Type: "AWS::ApiGatewayV2::Route"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      RouteKey: "GET /sneakers"
+      Target: !Sub "integrations/${GetSneakersIntegration}"
+
+  SubmitEntryRoute:
+    Type: "AWS::ApiGatewayV2::Route"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      RouteKey: "POST /submitEntry"
+      Target: !Sub "integrations/${SubmitEntryIntegration}"
+
+  SubscribeEmailRoute:
+    Type: "AWS::ApiGatewayV2::Route"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      RouteKey: "POST /subscribeForEmail"
+      Target: !Sub "integrations/${SubscribeEmailIntegration}"
+
+  InsertDataRoute:
+    Type: "AWS::ApiGatewayV2::Route"
+    Properties:
+      ApiId: !Ref "SneakersApi"
+      RouteKey: "GET /insertData"
+      Target: !Sub "integrations/${InsertDataIntegration}"
+
+  ProdStage:
+    Type: "AWS::ApiGatewayV2::Stage"
+    Properties:
+      StageName: "prod"
+      ApiId: !Ref "SneakersApi"
+      AutoDeploy: "true"
+  
+  ApiDeployment:
+    Type: 'AWS::ApiGatewayV2::Deployment'
+    DependsOn:
+    - "GetResultsRoute"
+    - "GetSneakersRoute"
+    - "SubmitEntryRoute"
+    - "SubscribeEmailRoute"
+    Properties:
+      Description: "Api Deployment"
+      ApiId: !Ref "SneakersApi"
+      StageName: "prod"
+
+  ExecuteDrawStateMachine:
+    Type: "AWS::StepFunctions::StateMachine"
+    Properties:
+      StateMachineName: "ExecuteDraw"
+      StateMachineType: "STANDARD"
+      RoleArn: "iamrole"
+      DefinitionString: !Sub |
+        {
+          "Comment": "Execute draw step function.",
+          "StartAt": "Wait",
+          "States": {
+            "Wait": {
+              "Type": "Wait",
+              "Seconds": 20,
+              "Next": "Pick Winners"
+            },
+          "Pick Winners": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "OutputPath": "$.Payload",
+            "Parameters": {
+              "Payload.$": "$",
+              "FunctionName": "${PickWinners.Arn}"
+            },
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "Lambda.ServiceException",
+                  "Lambda.AWSLambdaException",
+                  "Lambda.SdkClientException",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "IntervalSeconds": 2,
+                "MaxAttempts": 6,
+                "BackoffRate": 2
+              }
+            ],
+            "Next": "Store Entries Results"
+          },
+          "Store Entries Results": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "OutputPath": "$.Payload",
+            "Parameters": {
+              "FunctionName": "${StoreEntriesResult.Arn}",
+              "Payload.$": "$"
+            },
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "Lambda.ServiceException",
+                  "Lambda.AWSLambdaException",
+                  "Lambda.SdkClientException",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "IntervalSeconds": 2,
+                "MaxAttempts": 6,
+                "BackoffRate": 2
+              }
+            ],
+            "Next": "Send Results Email"
+          },
+          "Send Results Email": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "OutputPath": "$.Payload",
+            "Parameters": {
+              "FunctionName": "${SendResultEmail.Arn}"
+            },
+            "Retry": [
+              {
+                "ErrorEquals": [
+                  "Lambda.ServiceException",
+                  "Lambda.AWSLambdaException",
+                  "Lambda.SdkClientException",
+                  "Lambda.TooManyRequestsException"
+                ],
+                "IntervalSeconds": 2,
+                "MaxAttempts": 6,
+                "BackoffRate": 2
+              }
+            ],
+            "End": true
+          }
+          }
+        }
+
+  StartDrawEventRule:
+    Type: "AWS::Scheduler::Schedule"
+    Properties:
+      Name: "StartDrawEvent"
+      Description: "EventBridge schedule to run at 7 AM every day"
+      ScheduleExpression: "cron(11 * * * ? *)"
+      State: "ENABLED"
+      FlexibleTimeWindow:
+        Mode: "OFF"
+      Target:
+        Arn: !Sub "${ExecuteDrawStateMachine.Arn}"
+        RoleArn: "iamrole"
+    DependsOn:
+    - "ExecuteDrawStateMachine"
+
+Outputs:
+  ApiGatewayUrl:
+    Description: "API URL"
+    Value: !Sub "https://${SneakersApi}.execute-api.${AWS::Region}.amazonaws.com/prod"
