@@ -34,8 +34,10 @@ struct HomeView: View {
             }
             .padding(.bottom , 68)
         }
-        .task {
-            await sneakerViewModel.fetchSneakers()
+        .onFirstAppear {
+            Task {
+                await sneakerViewModel.fetchSneakers()
+            }
         }
         .overlay {
             if(sneakerViewModel.isLoading) {

@@ -19,6 +19,7 @@ class SneakerViewModel: ObservableObject {
         self.networkManager = networkManager
     }
     
+    /// fetches list of the sneakers from the API
     func fetchSneakers() async {
         await MainActor.run {
             self.isLoading = true
@@ -35,6 +36,10 @@ class SneakerViewModel: ObservableObject {
         }
     }
     
+    /// registers user's entry for raffle via POST request
+    /// - Parameters:
+    ///   - sneaker: selected sneaker for raffle entry
+    ///   - size: size of the user
     func postEntry(sneaker: Sneaker, size: String) async throws {
         guard let user = Auth.auth().currentUser, let userEmail = user.email else {
             throw UserError.NullUser
@@ -53,6 +58,7 @@ class SneakerViewModel: ObservableObject {
         }
     }
     
+    /// fetches user's result of registered raffles from the API
     func getResults() async throws {
         guard let user = Auth.auth().currentUser else {
             throw UserError.NullUser

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DetailView: View {
-    //    @Binding var showDetail: Bool
     @AppStorage("userSize") private var userSize: String?
     @EnvironmentObject var sneakerViewModel: SneakerViewModel
     @ObservedObject var selectedSneakerViewModel: SelectedSneakerViewModel
@@ -145,7 +144,6 @@ struct DetailView: View {
             Alert(title: Text("No Size Selected!"), message: Text("Please select your size from profile screen."), dismissButton: .cancel())
         }
         .statusBarHidden(true)
-        //        .background(.white)
     }
 }
 

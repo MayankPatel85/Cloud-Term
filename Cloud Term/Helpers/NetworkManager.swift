@@ -18,6 +18,11 @@ class NetworkManager: NetworkManagerImpl {
     
     private init() { }
     
+    /// fetches data from the API via HTTP GET call
+    /// - Parameters:
+    ///   - url: the API url
+    ///   - session: URLSession
+    /// - Returns: the Data from the API response
     func getData(url: String, session: URLSession) async throws -> Data {
         guard let url = URL(string: url) else {
             throw NMError.invalidUrl
@@ -32,6 +37,12 @@ class NetworkManager: NetworkManagerImpl {
         return data
     }
     
+    /// post data to API via HTTP POST request
+    /// - Parameters:
+    ///   - url: API url
+    ///   - data: data to sent in request
+    ///   - session: URLSession
+    /// - Returns: data returned from API response
     func postData<T: Encodable>(url: String, data: T, session: URLSession) async throws -> Data {
         guard let url = URL(string: url) else {
             throw NMError.invalidUrl

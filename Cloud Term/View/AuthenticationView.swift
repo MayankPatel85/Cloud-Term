@@ -13,7 +13,6 @@ struct AuthenticationView: View {
     @State private var password: String = ""
     @State private var isRegisterAccount: Bool = false
     @EnvironmentObject private var authViewModel: AuthViewModel
-//    @State private var showAuthScreen: Bool = false
     
     var body: some View {
         VStack {

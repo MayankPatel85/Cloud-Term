@@ -39,6 +39,10 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    /// registers a user in firebase authentication
+    /// - Parameters:
+    ///   - email: email of the user
+    ///   - password: password of the user
     func register(email: String, password: String) {
         self.isLoading = true
         auth.createUser(withEmail: email, password: password) { [self] (result, error) in
@@ -57,6 +61,10 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    /// performs firebase sign in using email and password
+    /// - Parameters:
+    ///   - email: email of the user
+    ///   - password: password of the user
     func signIn(email: String, password: String) {
         isLoading = true
         auth.signIn(withEmail: email, password: password) { [self] (result, error) in
@@ -70,6 +78,8 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    /// subscribes user to AWS SNS topic via POST API request
+    /// - Parameter email: email address of the user
     func subscribeEmail(email: String) async {
         await MainActor.run {
             self.isLoading = true
@@ -84,6 +94,8 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    /// retrieves the logged in user's email address
+    /// - Returns: email of the user
     func getCurrentUserEmail() -> String {
         if let userEmail = Auth.auth().currentUser?.email {
             return userEmail
@@ -92,6 +104,7 @@ class AuthViewModel: ObservableObject {
         }
     }
     
+    /// log out the current user
     func logout() {
         do {
             try auth.signOut()
